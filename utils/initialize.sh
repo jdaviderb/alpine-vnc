@@ -28,3 +28,4 @@ mkdir /etc/opt/chrome/policies/managed
 chmod -w /etc/opt/chrome/policies/managed
 cp /tmp/utils/autofirma_policy.json /etc/opt/chrome/policies/managed/autofirma_policy.json
 
+ 
