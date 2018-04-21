@@ -14,6 +14,7 @@ ADD utils /tmp/utils
 WORKDIR /tmp/utils
 
 RUN chmod +x /tmp/utils/initialize.sh
+RUN dos2unix initialize.sh
 CMD ["/tmp/utils/initialize.sh"]
 
 WORKDIR /home/alpine

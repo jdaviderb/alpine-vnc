@@ -11,6 +11,11 @@ tar xvf *.tar.xz
 cp -R ./etc /
 cp -R ./usr /
 ./postinst
+
+cd /tmp/utils
+dos2unix AutoFirma
+dos2unix certInfo
+dos2unix autofirma_policy.json
 cp /tmp/utils/AutoFirma /usr/bin/AutoFirma
 chmod 777 /usr/bin/AutoFirma
 
