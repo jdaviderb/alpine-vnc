@@ -11,6 +11,8 @@ tar xvf *.tar.xz
 cp -R ./etc /
 cp -R ./usr /
 ./postinst
+cp /tmp/utils/AutoFirma /usr/bin/AutoFirma
+chmod 777 /usr/bin/AutoFirma
 
 mkdir /tmp/certs
 cd /tmp/certs
@@ -21,3 +23,8 @@ openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12 -
 
 sudo -u alpine certutil -d sql:/home/alpine/.pki/nssdb -A -t "CT,c,c" -n /usr/local/share/ca-certificates/AutoFirma_ROOT.crt -i /usr/local/share/ca-certificates/AutoFirma_ROOT.crt
 sudo -u alpine pk12util -d sql:/home/alpine/.pki/nssdb -i certificate.p12 -W ""
+
+mkdir /etc/opt/chrome/policies/managed
+chmod -w /etc/opt/chrome/policies/managed
+cp /tmp/utils/autofirma_policy.json /etc/opt/chrome/policies/managed/autofirma_policy.json
+
