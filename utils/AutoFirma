@@ -1,0 +1,2 @@
+#!/bin/bash
+screen -dmS autofirma java -jar /usr/lib/AutoFirma/AutoFirma.jar $*
