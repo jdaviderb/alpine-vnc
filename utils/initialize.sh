@@ -14,7 +14,7 @@ cp -R ./usr /
 
 cd /tmp/utils
 dos2unix AutoFirma
-dos2unix certInfo
+dos2unix certInfo.txt
 dos2unix autofirma_policy.json
 cp /tmp/utils/AutoFirma /usr/bin/AutoFirma
 chmod 777 /usr/bin/AutoFirma
