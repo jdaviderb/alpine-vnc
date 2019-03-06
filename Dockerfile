@@ -1,7 +1,5 @@
 FROM alpine:3.9
 MAINTAINER Daniel Guerra
-ADD /apk /apk
-RUN cp /apk/.abuild/-58b83ac3.rsa.pub /etc/apk/keys
 RUN echo "http://alpine.42.fr/v3.9/main" >> /etc/apk/repositories
 RUN echo "http://alpine.42.fr/v3.9/community" >> /etc/apk/repositories
 RUN echo "http://alpine.42.fr/edge/main" >> /etc/apk/repositories
@@ -9,13 +7,11 @@ RUN echo "http://alpine.42.fr/edge/community" >> /etc/apk/repositories
 RUN apk update
 RUN apk upgrade
 
-RUN apk --no-cache --update add /apk/x11vnc-0.9.13-r0.apk
-RUN apk --no-cache add xvfb openbox xfce4-terminal supervisor sudo \
+RUN apk add x11vnc xvfb openbox xfce4-terminal supervisor sudo \
 && addgroup alpine \
 && adduser  -G alpine -s /bin/sh -D alpine \
 && echo "alpine:alpine" | /usr/sbin/chpasswd \
 && echo "alpine    ALL=(ALL) ALL" >> /etc/sudoers \
-&& rm -rf /apk /tmp/* /var/cache/apk/*
 ADD etc /etc
 WORKDIR /home/alpine
 EXPOSE 5900
