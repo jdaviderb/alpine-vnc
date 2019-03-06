@@ -15,7 +15,7 @@ RUN apk add x11vnc xvfb openbox xfce4-terminal supervisor sudo \
 
 COPY etc/xdg/openbox/menu.xml /etc/xdg/openbox/menu.xml
 COPY etc/supervisord.conf /etc/supervisord.conf
-
+ 
 WORKDIR /home/alpine
 EXPOSE 5900
 USER alpine
