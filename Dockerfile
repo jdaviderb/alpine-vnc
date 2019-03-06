@@ -6,6 +6,7 @@ RUN echo "http://alpine.42.fr/latest-stable/main \
 		  http://alpine.42.fr/edge/main \
           http://alpine.42.fr/edge/community " >> /etc/apk/repositories
 RUN apk update
+RUN apk upgrade
 RUN cp /apk/.abuild/-58b83ac3.rsa.pub /etc/apk/keys
 RUN apk add /apk/x11vnc-0.9.13-r0.apk
 RUN apk add xvfb openbox xfce4-terminal supervisor sudo bash mc nano screen openjdk8 nss-tools openrc openssh openssl xdg-utils tar bash xz binutils xdotool chromium \
