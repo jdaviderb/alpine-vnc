@@ -2,8 +2,10 @@ FROM alpine:3.9
 MAINTAINER Daniel Guerra
 ADD /apk /apk
 RUN cp /apk/.abuild/-58b83ac3.rsa.pub /etc/apk/keys
-ADD /repositories /repositories
-RUN cp /repositories/repositories /etc/apk/repositories
+RUN echo "http://alpine.42.fr/v3.9/main" >> /etc/apk/repositories
+RUN echo "http://alpine.42.fr/v3.9/community" >> /etc/apk/repositories
+RUN echo "http://alpine.42.fr/edge/main" >> /etc/apk/repositories
+RUN echo "http://alpine.42.fr/edge/community" >> /etc/apk/repositories
 RUN apk update
 RUN apk upgrade
 
