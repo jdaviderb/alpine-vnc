@@ -12,7 +12,7 @@ RUN apk add x11vnc xvfb openbox xfce4-terminal supervisor sudo \
 && adduser  -G alpine -s /bin/sh -D alpine \
 && echo "alpine:alpine" | /usr/sbin/chpasswd \
 && echo "alpine    ALL=(ALL) ALL" >> /etc/sudoers \
-ADD etc /etc
+COPY etc /etc
 WORKDIR /home/alpine
 EXPOSE 5900
 USER alpine
